@@ -1,0 +1,4 @@
+Base Model (H5): 0.70 MB
+Base Model (TFLite): 0.66 MB
+Quantized Model (H5): 2.09 MB
+Quantized Model (TFLite): 0.18 MB

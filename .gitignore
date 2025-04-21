@@ -1,0 +1,14 @@
+# macos
+.DS_Store
+
+# pycharm
+.idea/
+
+# data
+/Coffee/data/
+/Coffee/dataset
+/PlantVillage/data/
+/PlantVillage/dataset/
+
+# cache
+__pycache__/

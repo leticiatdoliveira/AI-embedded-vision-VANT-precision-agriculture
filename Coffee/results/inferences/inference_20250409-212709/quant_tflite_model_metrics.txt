@@ -1,0 +1,5 @@
+Model: quant_tflite_model
+Accuracy: 0.6938
+Inference Time: 33.78 seconds
+Memory Usage (Current): 1.05 MB
+Memory Usage (Peak): 1.63 MB

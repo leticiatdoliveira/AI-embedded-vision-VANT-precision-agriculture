@@ -1,0 +1,17 @@
+MODEL COMPARISON RESULTS
+=======================
+
+ACCURACY
+keras: 0.7623
+tflite: 0.7623
+quant_tflite: 0.6938
+
+INFERENCE TIME
+keras: 15.83 seconds
+tflite: 93.23 seconds
+quant_tflite: 38.37 seconds
+
+MEMORY USAGE (PEAK)
+keras: 1.18 MB
+tflite: 1.64 MB
+quant_tflite: 1.65 MB

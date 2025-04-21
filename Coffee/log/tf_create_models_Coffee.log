@@ -1,0 +1,58 @@
+[INFO] 2025-04-09 17:48:47,943 - Starting creation of TF models - Dataset Coffee
+[INFO] 2025-04-09 17:48:47,943 - Dataset exists
+[INFO] 2025-04-09 17:48:47,943 - Creating dataset objects...
+[INFO] 2025-04-09 17:48:48,394 - >> Train nb img: 19712
+[INFO] 2025-04-09 17:48:48,394 - >> Val nb img: 6592
+[INFO] 2025-04-09 17:48:48,394 - >> Test nb img: 6592
+[INFO] 2025-04-09 17:48:48,416 - Number of classes: 5
+[INFO] 2025-04-09 17:48:48,416 - Class names: ['Cerscospora', 'Healthy', 'Leaf rust', 'Miner', 'Phoma']
+[INFO] 2025-04-09 17:48:48,416 - Creating and compiling model...
+[INFO] 2025-04-09 17:48:48,524 - Fitting model...
+[INFO] 2025-04-09 17:48:48,524 - 
+--- Training model (cnn_ep=10_lr=0.001_aug=False) ---
+[INFO] 2025-04-09 17:50:14,879 - Fit time: 86.36 seconds
+[INFO] 2025-04-09 17:50:14,880 - Fit memory usage: 4.57 MiB; Peak: 5.30 MiB
+[INFO] 2025-04-09 17:50:14,881 - Saving the entire model...
+[INFO] 2025-04-09 17:50:14,905 - 
+--- Evaluating base model ---
+[INFO] 2025-04-09 17:51:19,442 - train accuracy: 0.9548
+[INFO] 2025-04-09 17:51:40,488 - validation accuracy: 0.9525
+[INFO] 2025-04-09 17:51:47,871 - test accuracy: 0.9486
+[INFO] 2025-04-09 17:51:47,875 - 
+--- Converting to TFLite model ---
+[INFO] 2025-04-09 17:51:49,444 - TFLite model saved to: /Users/tempone/Documents local/IC_VANT/Coffee/model/cnn_ep=10_lr=0.001_aug=False.tflite
+[INFO] 2025-04-09 17:51:49,445 - 
+--- Creating quantization-aware model ---
+[INFO] 2025-04-09 17:51:50,151 - Fitting quantization-aware model...
+[INFO] 2025-04-09 17:51:50,151 - 
+--- Training model (cnn_quant_ep=10_lr=0.001_aug=False) ---
+[INFO] 2025-04-09 18:49:18,497 - Quant fit time: 3448.35 seconds
+[INFO] 2025-04-09 18:49:18,497 - Quant fit memory usage: 4.10 MiB; Peak: 4.85 MiB
+[INFO] 2025-04-09 18:49:18,497 - Saving the quantization-aware model...
+[INFO] 2025-04-09 18:49:18,548 - 
+--- Evaluating quantization-aware model ---
+[INFO] 2025-04-09 18:50:41,552 - train accuracy: 0.9679
+[INFO] 2025-04-09 19:00:15,897 - validation accuracy: 0.9693
+[INFO] 2025-04-09 19:00:44,376 - test accuracy: 0.9658
+[INFO] 2025-04-09 19:00:44,379 - 
+--- Converting to quantized TFLite model ---
+[INFO] 2025-04-09 19:00:46,842 - TFLite model saved to: /Users/tempone/Documents local/IC_VANT/Coffee/model/cnn_quant_ep=10_lr=0.001_aug=False.tflite
+[INFO] 2025-04-09 19:00:46,844 - 
+--- Comparing model sizes ---
+[INFO] 2025-04-09 19:00:46,844 - Model: Base Model (H5), Size: 0.70 MB
+[INFO] 2025-04-09 19:00:46,844 - Model: Base Model (TFLite), Size: 0.66 MB
+[INFO] 2025-04-09 19:00:46,844 - Model: Quantized Model (H5), Size: 2.09 MB
+[INFO] 2025-04-09 19:00:46,844 - Model: Quantized Model (TFLite), Size: 0.18 MB
+[INFO] 2025-04-09 19:00:46,844 - 
+--- Comparing model accuracies ---
+[INFO] 2025-04-09 19:00:46,844 - train - Base Model Accuracy: 0.9548
+[INFO] 2025-04-09 19:00:46,844 - validation - Base Model Accuracy: 0.9525
+[INFO] 2025-04-09 19:00:46,844 - test - Base Model Accuracy: 0.9486
+[INFO] 2025-04-09 19:00:46,844 - train - Quantized Model Accuracy: 0.9679
+[INFO] 2025-04-09 19:00:46,844 - validation - Quantized Model Accuracy: 0.9693
+[INFO] 2025-04-09 19:00:46,844 - test - Quantized Model Accuracy: 0.9658
+[INFO] 2025-04-09 19:00:46,844 - 
+--- Model accuracies compared ---
+[INFO] 2025-04-09 19:00:46,844 - 
+=== Training and Conversion Complete ===
+[INFO] 2025-04-09 19:00:46,844 - Models saved to: /Users/tempone/Documents local/IC_VANT/Coffee/model

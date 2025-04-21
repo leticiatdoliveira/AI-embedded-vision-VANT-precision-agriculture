@@ -1,0 +1,5 @@
+Model: quant_keras_model
+Accuracy: 0.9658
+Inference Time: 31.81 seconds
+Memory Usage (Current): 0.95 MB
+Memory Usage (Peak): 0.96 MB

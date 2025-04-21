@@ -1,0 +1,83 @@
+[INFO] 2025-04-09 11:31:37,624 - Starting auto-balanced dataset split
+[INFO] 2025-04-09 11:31:37,624 - Starting to split data from /Users/tempone/Documents local/IC_VANT/PlantVillage/data with balancing=False
+[INFO] 2025-04-09 11:31:37,727 - Original class distribution:
+[INFO] 2025-04-09 11:31:37,727 -   Tomato_Bacterial_spot: 2127 images
+[INFO] 2025-04-09 11:31:37,727 -   Tomato_Early_blight: 1000 images
+[INFO] 2025-04-09 11:31:37,727 -   Tomato_Late_blight: 1909 images
+[INFO] 2025-04-09 11:31:37,727 -   Tomato_Leaf_Mold: 952 images
+[INFO] 2025-04-09 11:31:37,727 -   Tomato_Septoria_leaf_spot: 1771 images
+[INFO] 2025-04-09 11:31:37,727 -   Tomato_Spider_mites_Two_spotted_spider_mite: 1676 images
+[INFO] 2025-04-09 11:31:37,727 -   Tomato__Target_Spot: 1404 images
+[INFO] 2025-04-09 11:31:37,728 -   Tomato__Tomato_YellowLeaf__Curl_Virus: 3208 images
+[INFO] 2025-04-09 11:31:37,728 -   Tomato__Tomato_mosaic_virus: 373 images
+[INFO] 2025-04-09 11:31:37,728 -   Tomato_healthy: 1591 images
+[INFO] 2025-04-09 11:31:37,728 - Class distribution statistics:
+[INFO] 2025-04-09 11:31:37,728 -   Total classes: 10
+[INFO] 2025-04-09 11:31:37,728 -   Total images: 16011
+[INFO] 2025-04-09 11:31:37,728 -   Average images per class: 1601.10
+[INFO] 2025-04-09 11:31:37,728 -   Minimum class size: 373 ('Tomato__Tomato_mosaic_virus')
+[INFO] 2025-04-09 11:31:37,728 -   Maximum class size: 3208 ('Tomato__Tomato_YellowLeaf__Curl_Virus')
+[INFO] 2025-04-09 11:31:37,728 -   Imbalance ratio (max/min): 8.60x
+[INFO] 2025-04-09 11:31:37,728 - No under-sampling applied - using full dataset
+[INFO] 2025-04-09 11:31:37,728 - Processing class: Tomato_healthy
+[INFO] 2025-04-09 11:31:38,313 - Class Tomato_healthy: 954 train, 318 validation, 319 test
+[INFO] 2025-04-09 11:31:38,313 - Processing class: Tomato__Tomato_YellowLeaf__Curl_Virus
+[INFO] 2025-04-09 11:31:39,550 - Class Tomato__Tomato_YellowLeaf__Curl_Virus: 1924 train, 641 validation, 643 test
+[INFO] 2025-04-09 11:31:39,550 - Processing class: Tomato_Early_blight
+[INFO] 2025-04-09 11:31:39,962 - Class Tomato_Early_blight: 600 train, 200 validation, 200 test
+[INFO] 2025-04-09 11:31:39,962 - Processing class: Tomato__Target_Spot
+[INFO] 2025-04-09 11:31:40,491 - Class Tomato__Target_Spot: 842 train, 280 validation, 282 test
+[INFO] 2025-04-09 11:31:40,491 - Processing class: Tomato_Leaf_Mold
+[INFO] 2025-04-09 11:31:40,853 - Class Tomato_Leaf_Mold: 571 train, 190 validation, 191 test
+[INFO] 2025-04-09 11:31:40,853 - Processing class: Tomato_Spider_mites_Two_spotted_spider_mite
+[INFO] 2025-04-09 11:31:41,565 - Class Tomato_Spider_mites_Two_spotted_spider_mite: 1005 train, 335 validation, 336 test
+[INFO] 2025-04-09 11:31:41,565 - Processing class: Tomato_Septoria_leaf_spot
+[INFO] 2025-04-09 11:31:42,243 - Class Tomato_Septoria_leaf_spot: 1062 train, 354 validation, 355 test
+[INFO] 2025-04-09 11:31:42,243 - Processing class: Tomato__Tomato_mosaic_virus
+[INFO] 2025-04-09 11:31:42,405 - Class Tomato__Tomato_mosaic_virus: 223 train, 74 validation, 76 test
+[INFO] 2025-04-09 11:31:42,405 - Processing class: Tomato_Bacterial_spot
+[INFO] 2025-04-09 11:31:43,235 - Class Tomato_Bacterial_spot: 1276 train, 425 validation, 426 test
+[INFO] 2025-04-09 11:31:43,235 - Processing class: Tomato_Late_blight
+[INFO] 2025-04-09 11:31:44,059 - Class Tomato_Late_blight: 1145 train, 381 validation, 383 test
+[INFO] 2025-04-09 11:31:44,114 - Balance quality measures (lower CV = better balance):
+[INFO] 2025-04-09 11:31:44,114 -   Train: CV=0.4556, Mean=960.20, StdDev=437.48
+[INFO] 2025-04-09 11:31:44,114 -   Validation: CV=0.4559, Mean=319.80, StdDev=145.80
+[INFO] 2025-04-09 11:31:44,114 -   Test: CV=0.4545, Mean=321.10, StdDev=145.95
+[INFO] 2025-04-09 11:31:44,114 - Train dataset class distribution:
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Bacterial_spot: 1276 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Early_blight: 600 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Late_blight: 1145 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Leaf_Mold: 571 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Septoria_leaf_spot: 1062 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Spider_mites_Two_spotted_spider_mite: 1005 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato__Target_Spot: 842 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato__Tomato_YellowLeaf__Curl_Virus: 1924 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato__Tomato_mosaic_virus: 223 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_healthy: 954 images
+[INFO] 2025-04-09 11:31:44,114 - Validation dataset class distribution:
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Bacterial_spot: 425 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Early_blight: 200 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Late_blight: 381 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Leaf_Mold: 190 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Septoria_leaf_spot: 354 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Spider_mites_Two_spotted_spider_mite: 335 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato__Target_Spot: 280 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato__Tomato_YellowLeaf__Curl_Virus: 641 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato__Tomato_mosaic_virus: 74 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_healthy: 318 images
+[INFO] 2025-04-09 11:31:44,114 - Test dataset class distribution:
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Bacterial_spot: 426 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Early_blight: 200 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Late_blight: 383 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Leaf_Mold: 191 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Septoria_leaf_spot: 355 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_Spider_mites_Two_spotted_spider_mite: 336 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato__Target_Spot: 282 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato__Tomato_YellowLeaf__Curl_Virus: 643 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato__Tomato_mosaic_virus: 76 images
+[INFO] 2025-04-09 11:31:44,114 -   Tomato_healthy: 319 images
+[INFO] 2025-04-09 11:31:44,114 - Train Dataset: 9602 images, 10 classes
+[INFO] 2025-04-09 11:31:44,114 - Validation Dataset: 3198 images, 10 classes
+[INFO] 2025-04-09 11:31:44,114 - Test Dataset: 3211 images, 10 classes
+[INFO] 2025-04-09 11:31:44,114 - Total images in split dataset: 16011
+[INFO] 2025-04-09 11:31:44,114 - Dataset split completed successfully!

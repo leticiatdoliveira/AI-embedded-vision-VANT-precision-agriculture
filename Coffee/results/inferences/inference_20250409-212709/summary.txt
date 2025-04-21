@@ -1,0 +1,9 @@
+Inference Session: inference_20250409-212709
+Date: 2025-04-09 21:31:37
+Dataset: Coffee
+Set type: test
+Number of models compared: 4
+
+Most accurate model: quant_keras (0.9658)
+Fastest model: keras (11.45s)
+Lowest memory usage: quant_keras (0.96MB)
