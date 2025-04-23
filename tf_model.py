@@ -19,7 +19,7 @@ class Config:
         # Constants
         self.IMG_SIZE = (224, 224)
         self.BATCH_SIZE = 32
-        self.EPOCHS = 10
+        self.EPOCHS = 20
         self.LEARNING_RATE = 0.001
         self.DATASET_TYPE = dataset_type
         self.DATA_AUGMENTATION = False
@@ -239,7 +239,7 @@ class Trainer:
         # Add accuracy threshold callback
         accuracy_threshold = AccuracyThresholdCallback(threshold=0.95)
 
-        return [checkpoint_callback, early_stopping, lr_scheduler, accuracy_threshold], checkpoint_path
+        return [checkpoint_callback], checkpoint_path
 
     def train_model(self, model, train_ds, val_ds, epochs, model_name):
         """Train model and save history."""
@@ -383,29 +383,35 @@ def main():
     logger.info(f"Class names: {class_names}")
 
     # Build and train the base model
-    logger.info("Creating and compiling model...")
     model_name = f"cnn_" + config.MODEL_BASE_NAME
-    model = model_builder.build_cnn_model(num_classes)
-    model_builder.compile_model(model)
+    base_model_path = os.path.join(config.MODEL_PATH, f"{model_name}.keras")
 
-    logger.info("Fitting model...")
-    start_time = time.time()
-    tracemalloc.start()
-    model, history, checkpoint_path = trainer.train_model(
-        model, datasets["train"], datasets["validation"], config.EPOCHS, model_name
-    )
-    current, peak = tracemalloc.get_traced_memory()
-    tracemalloc.stop()
-    logger.info(f"Fit time: {time.time() - start_time:.2f} seconds")
-    logger.info(f"Fit memory usage: {current / (1024 * 1024):.2f} MiB; Peak: {peak / (1024 * 1024):.2f} MiB")
+    logger.info(f"Searching for model: {model_name}")
+    if os.path.exists(os.path.join(config.MODEL_PATH, f"{model_name}.keras")):
+        logger.info(f"Model {model_name} already exists. Skipping training.")
+        model = keras.models.load_model(os.path.join(config.MODEL_PATH, f"{model_name}.keras"))
+    else:
+        logger.info("Creating and compiling model...")
+        model = model_builder.build_cnn_model(num_classes)
+        model_builder.compile_model(model)
+
+        logger.info("Fitting model...")
+        start_time = time.time()
+        tracemalloc.start()
+        model, history, checkpoint_path = trainer.train_model(
+            model, datasets["train"], datasets["validation"], config.EPOCHS, model_name
+        )
+        current, peak = tracemalloc.get_traced_memory()
+        tracemalloc.stop()
+        logger.info(f"Fit time: {time.time() - start_time:.2f} seconds")
+        logger.info(f"Fit memory usage: {current / (1024 * 1024):.2f} MiB; Peak: {peak / (1024 * 1024):.2f} MiB")
+
+        # Save the entire model
+        logger.info("Saving the entire model...")
+        model.save(base_model_path)
 
     # Model summary
     model.summary()
-
-    # Save the entire model
-    logger.info("Saving the entire model...")
-    base_model_path = os.path.join(config.MODEL_PATH, f"{model_name}.keras")
-    model.save(base_model_path)
 
     # Evaluate the base model
     logger.info("\n--- Evaluating base model ---")

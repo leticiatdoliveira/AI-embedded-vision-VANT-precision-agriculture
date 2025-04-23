@@ -1,0 +1,3 @@
+train - Loss: 0.0770, Accuracy: 0.9785
+validation - Loss: 0.0745, Accuracy: 0.9760
+test - Loss: 0.0633, Accuracy: 0.9795
