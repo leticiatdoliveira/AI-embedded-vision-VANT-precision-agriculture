@@ -1,0 +1,5 @@
+Model: keras_model
+Accuracy: 0.5968
+Inference Time: 141.50 seconds
+Memory Usage (Current): 1.36 MB
+Memory Usage (Peak): 1.37 MB

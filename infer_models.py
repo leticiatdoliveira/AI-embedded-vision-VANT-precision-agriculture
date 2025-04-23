@@ -491,7 +491,7 @@ def compare_model_results(results_dict, config, logger):
 def main():
     """Main function to run TF models inference."""
     # Initialize configuration
-    config = Config('Coffee', 'test', 10)
+    config = Config('Coffee', 'test', 20)
     config.create_directories()
 
     # Initialize logger

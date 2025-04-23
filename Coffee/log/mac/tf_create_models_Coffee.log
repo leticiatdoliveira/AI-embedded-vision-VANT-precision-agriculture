@@ -1,0 +1,36 @@
+[INFO] 2025-04-22 13:37:42,461 - Starting creation of TF models - Dataset Coffee
+[INFO] 2025-04-22 13:37:42,461 - Dataset exists
+[INFO] 2025-04-22 13:37:42,461 - Creating dataset objects...
+[INFO] 2025-04-22 13:37:42,975 - >> Train nb img: 19712
+[INFO] 2025-04-22 13:37:42,975 - >> Val nb img: 6592
+[INFO] 2025-04-22 13:37:42,975 - >> Test nb img: 6592
+[INFO] 2025-04-22 13:37:42,999 - Number of classes: 5
+[INFO] 2025-04-22 13:37:43,000 - Class names: ['Cerscospora', 'Healthy', 'Leaf rust', 'Miner', 'Phoma']
+[INFO] 2025-04-22 13:37:43,000 - Searching for model: cnn_ep=20_lr=0.001_aug=False
+[INFO] 2025-04-22 13:37:43,000 - Model cnn_ep=20_lr=0.001_aug=False already exists. Skipping training.
+[INFO] 2025-04-22 13:37:43,158 - 
+--- Evaluating base model ---
+[INFO] 2025-04-22 13:38:04,908 - train accuracy: 0.9573
+[INFO] 2025-04-22 13:38:12,536 - validation accuracy: 0.9568
+[INFO] 2025-04-22 13:38:20,794 - test accuracy: 0.9574
+[INFO] 2025-04-22 13:38:20,798 - 
+--- Converting to TFLite model ---
+[INFO] 2025-04-22 13:38:22,030 - TFLite model saved to: /Users/tempone/Git/IC_vant/AI-vision-based-precision-agriculture/Coffee/model/cnn_ep=20_lr=0.001_aug=False.tflite
+[INFO] 2025-04-22 13:38:22,030 - 
+--- Creating quantization-aware model ---
+[INFO] 2025-04-22 13:38:22,926 - Fitting quantization-aware model...
+[INFO] 2025-04-22 13:38:22,926 - 
+--- Training model (cnn_quant_ep=20_lr=0.001_aug=False) ---
+[INFO] 2025-04-22 15:51:19,005 - Quant fit time: 7976.08 seconds
+[INFO] 2025-04-22 15:51:19,007 - Quant fit memory usage: 5.45 MiB; Peak: 5.53 MiB
+[INFO] 2025-04-22 15:51:19,007 - Saving the quantization-aware model...
+[INFO] 2025-04-22 15:51:19,060 - 
+--- Evaluating quantization-aware model ---
+[INFO] 2025-04-22 15:52:47,410 - train accuracy: 0.9785
+[INFO] 2025-04-22 15:53:16,678 - validation accuracy: 0.9760
+[INFO] 2025-04-22 15:53:46,657 - test accuracy: 0.9795
+[INFO] 2025-04-22 15:53:46,659 - 
+--- Converting to quantized TFLite model ---
+[INFO] 2025-04-22 15:53:49,399 - TFLite model saved to: /Users/tempone/Git/IC_vant/AI-vision-based-precision-agriculture/Coffee/model/cnn_quant_ep=20_lr=0.001_aug=False.tflite
+[INFO] 2025-04-22 15:53:49,400 - 
+--- Comparing model sizes ---

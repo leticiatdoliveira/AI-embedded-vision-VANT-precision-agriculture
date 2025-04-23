@@ -1,0 +1,5 @@
+Model: tflite_model
+Accuracy: 0.5968
+Inference Time: 192.31 seconds
+Memory Usage (Current): 1.05 MB
+Memory Usage (Peak): 1.63 MB

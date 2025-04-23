@@ -1,0 +1,38 @@
+[INFO] 2025-04-23 16:45:11,695 - Starting TF models inference - Dataset Coffee - Set test
+[INFO] 2025-04-23 16:45:11,696 - Loading test dataset from /home/blackbee/Documents/IC/AI-embedded-vision-VANT-precision-agriculture/Coffee/dataset/test
+[INFO] 2025-04-23 16:45:12,084 - Test dataset loaded with 6592 images
+[INFO] 2025-04-23 16:45:12,084 - Number of classes: 5
+[INFO] 2025-04-23 16:45:12,084 - Class names: ['Cerscospora', 'Healthy', 'Leaf rust', 'Miner', 'Phoma']
+[INFO] 2025-04-23 16:45:12,085 - Test dataset loaded ! - 5 classes - 6592 images
+[INFO] 2025-04-23 16:45:12,085 - Processing Keras model: cnn_ep=20_lr=0.001_aug=False.keras
+[INFO] 2025-04-23 16:45:12,085 - Loading Keras model from /home/blackbee/Documents/IC/AI-embedded-vision-VANT-precision-agriculture/Coffee/model/cnn_ep=20_lr=0.001_aug=False.keras
+[INFO] 2025-04-23 16:47:33,846 - Keras inference completed in 141.50 seconds
+[INFO] 2025-04-23 16:47:33,848 - Memory usage: 1.36 MB; Peak: 1.37 MB
+[INFO] 2025-04-23 16:47:33,848 - Accuracy: 0.5968
+[INFO] 2025-04-23 16:47:35,824 - Results visualization saved to /home/blackbee/Documents/IC/AI-embedded-vision-VANT-precision-agriculture/Coffee/results/inferences/inference_20250423-164511/keras_model_accuracy.png
+[INFO] 2025-04-23 16:47:35,829 - Metrics saved to /home/blackbee/Documents/IC/AI-embedded-vision-VANT-precision-agriculture/Coffee/results/inferences/inference_20250423-164511/keras_model_metrics.txt
+[INFO] 2025-04-23 16:47:35,831 - Processing TFLite model: cnn_ep=20_lr=0.001_aug=False.tflite
+[INFO] 2025-04-23 16:47:35,832 - Loading TFLite model from /home/blackbee/Documents/IC/AI-embedded-vision-VANT-precision-agriculture/Coffee/model/cnn_ep=20_lr=0.001_aug=False.tflite
+[INFO] 2025-04-23 16:50:48,229 - TFLite inference completed in 192.31 seconds
+[INFO] 2025-04-23 16:50:48,230 - Memory usage: 1.05 MB; Peak: 1.63 MB
+[INFO] 2025-04-23 16:50:48,230 - Accuracy: 0.5968
+[INFO] 2025-04-23 16:50:48,421 - Results visualization saved to /home/blackbee/Documents/IC/AI-embedded-vision-VANT-precision-agriculture/Coffee/results/inferences/inference_20250423-164511/tflite_model_accuracy.png
+[INFO] 2025-04-23 16:50:48,422 - Metrics saved to /home/blackbee/Documents/IC/AI-embedded-vision-VANT-precision-agriculture/Coffee/results/inferences/inference_20250423-164511/tflite_model_metrics.txt
+[INFO] 2025-04-23 16:50:48,422 - Processing quantized Keras model: cnn_quant_ep=20_lr=0.001_aug=False.h5
+[INFO] 2025-04-23 16:50:48,422 - Loading Keras model from /home/blackbee/Documents/IC/AI-embedded-vision-VANT-precision-agriculture/Coffee/model/cnn_quant_ep=20_lr=0.001_aug=False.h5
+[ERROR] 2025-04-23 16:50:48,422 - Error loading quantized model: module 'tensorflow_model_optimization.python.core.api.quantization.keras' has no attribute 'QuantizeLayer'
+[INFO] 2025-04-23 16:53:56,058 - Keras inference completed in 185.47 seconds
+[INFO] 2025-04-23 16:53:56,059 - Memory usage: 0.90 MB; Peak: 0.91 MB
+[INFO] 2025-04-23 16:53:56,059 - Accuracy: 0.9112
+[INFO] 2025-04-23 16:53:56,250 - Results visualization saved to /home/blackbee/Documents/IC/AI-embedded-vision-VANT-precision-agriculture/Coffee/results/inferences/inference_20250423-164511/quant_keras_model_accuracy.png
+[INFO] 2025-04-23 16:53:56,250 - Metrics saved to /home/blackbee/Documents/IC/AI-embedded-vision-VANT-precision-agriculture/Coffee/results/inferences/inference_20250423-164511/quant_keras_model_metrics.txt
+[INFO] 2025-04-23 16:53:56,250 - Processing quantized TFLite model: cnn_quant_ep=20_lr=0.001_aug=False.tflite
+[INFO] 2025-04-23 16:53:56,250 - Loading TFLite model from /home/blackbee/Documents/IC/AI-embedded-vision-VANT-precision-agriculture/Coffee/model/cnn_quant_ep=20_lr=0.001_aug=False.tflite
+[INFO] 2025-04-23 16:55:08,179 - TFLite inference completed in 71.91 seconds
+[INFO] 2025-04-23 16:55:08,181 - Memory usage: 1.04 MB; Peak: 1.62 MB
+[INFO] 2025-04-23 16:55:08,182 - Accuracy: 0.9116
+[INFO] 2025-04-23 16:55:08,358 - Results visualization saved to /home/blackbee/Documents/IC/AI-embedded-vision-VANT-precision-agriculture/Coffee/results/inferences/inference_20250423-164511/quant_tflite_model_accuracy.png
+[INFO] 2025-04-23 16:55:08,358 - Metrics saved to /home/blackbee/Documents/IC/AI-embedded-vision-VANT-precision-agriculture/Coffee/results/inferences/inference_20250423-164511/quant_tflite_model_metrics.txt
+[INFO] 2025-04-23 16:55:09,528 - Model comparison results saved to /home/blackbee/Documents/IC/AI-embedded-vision-VANT-precision-agriculture/Coffee/results/inferences/inference_20250423-164511/model_comparison.txt
+[INFO] 2025-04-23 16:55:09,528 - Model comparison visualizations saved to /home/blackbee/Documents/IC/AI-embedded-vision-VANT-precision-agriculture/Coffee/results/inferences/inference_20250423-164511
+[INFO] 2025-04-23 16:55:09,528 - Model inference completed

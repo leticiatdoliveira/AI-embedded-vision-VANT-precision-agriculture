@@ -1,0 +1,9 @@
+Inference Session: inference_20250423-164511
+Date: 2025-04-23 16:55:09
+Dataset: Coffee
+Set type: test
+Number of models compared: 4
+
+Most accurate model: quant_tflite (0.9116)
+Fastest model: quant_tflite (71.91s)
+Lowest memory usage: quant_keras (0.91MB)
