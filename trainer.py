@@ -1,5 +1,6 @@
 import os
 import matplotlib.pyplot as plt
+import tensorflow as tf
 from tensorflow import keras
 from callbacks import AccuracyThresholdCallback
 
@@ -15,38 +16,40 @@ class Trainer:
         checkpoint_dir = os.path.join(self.config.RESULT_PATH, f"checkpoints_{model_name}")
         if not os.path.exists(checkpoint_dir):
             os.makedirs(checkpoint_dir)
-
+    
         # Model checkpoint to save best weights
         checkpoint_path = os.path.join(checkpoint_dir, "best_model.weights.h5")
-        checkpoint_callback = keras.callbacks.ModelCheckpoint(
+        
+        # Use tf.keras directly instead of keras
+        checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
             filepath=checkpoint_path,
             save_weights_only=True,
             monitor='val_accuracy',
             mode='max',
             save_best_only=True
         )
-
+    
         # Early stopping to prevent overfitting
-        early_stopping = keras.callbacks.EarlyStopping(
+        early_stopping = tf.keras.callbacks.EarlyStopping(
             monitor='val_accuracy',
             patience=self.config.EARLY_STOP_PATIENCE,
             min_delta=self.config.EARLY_STOP_MIN_DELTA,
             restore_best_weights=True,
             verbose=1
         )
-
+    
         # Learning rate scheduler
-        lr_scheduler = keras.callbacks.ReduceLROnPlateau(
+        lr_scheduler = tf.keras.callbacks.ReduceLROnPlateau(
             monitor='val_loss',
             factor=0.5,
             patience=2,
             min_lr=1e-6,
             verbose=1
         )
-
+    
         # Add accuracy threshold callback
         accuracy_threshold = AccuracyThresholdCallback(threshold=0.95)
-
+    
         return [checkpoint_callback], checkpoint_path
 
     def train_model(self, model, train_ds, val_ds, epochs, model_name):
