@@ -50,3 +50,14 @@ class Config:
             if not os.path.exists(path):
                 os.makedirs(path)
 
+
+    def show_directories_path(self):
+        print(f"PROJECT PATH: {self.PROJECT_PATH}")
+        print(f"DATASET PATH: {self.DATASET_PATH}")
+        print(f"MODEL_PATH: {self.MODEL_PATH}")
+        print(f"RESULT PATH: {self.RESULT_PATH}")
+        print(f"LOG PATH: {self.LOG_PATH}")
+        print(f"TRAIN_DIR: {self.TRAIN_DIR}")
+        print(f"VAL_DIR: {self.VAL_DIR}")
+        print(f"TEST_DIR: {self.TEST_DIR}")
+        print(f"MODEL_BASE_NAME: {self.MODEL_BASE_NAME}")

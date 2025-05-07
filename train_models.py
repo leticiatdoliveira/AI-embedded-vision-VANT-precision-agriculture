@@ -29,18 +29,18 @@ def main():
     args = parser.parse_args()
     
     # Initialize configuration with command line arguments
-    config = Config(args.dataset)
-    config.DEVICE = args.device  # Set device type in config
-    device = args.device
+    config = Config(args.dataset, args.device)
+    print(f"Checking config dataset and device: {config.DATASET_TYPE} and device: {config.DEVICE}")
 
     # Initialize logger
-    logger = Logger(config.LOG_PATH, f"tf_create_models_{device}_{config.DATASET_TYPE}_{config.MODEL_BASE_NAME}")
+    logger = Logger(config.LOG_PATH, f"tf_create_models_{config}_{config.DATASET_TYPE}_{config.MODEL_BASE_NAME}")
     logger.info(f"Starting creation of TF models - Dataset {config.DATASET_TYPE}")
-    logger.info(f"Using device: {device}")
+    logger.info(f"Using device: {config.DEVICE}")
 
     # Check environment
     Utils.check_gpu()
     config.create_directories()
+    #config.show_directories_path()
 
     # Initialize components
     data_loader = DataLoader(config, logger)

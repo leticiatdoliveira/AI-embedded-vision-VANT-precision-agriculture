@@ -1,17 +1,17 @@
-[INFO] 2025-05-07 16:46:43,804 - Starting creation of TF models - Dataset Coffee
-[INFO] 2025-05-07 16:46:43,804 - Using device: lp8
-[INFO] 2025-05-07 16:46:43,804 - Dataset exists
-[INFO] 2025-05-07 16:46:43,804 - Creating dataset objects...
-[INFO] 2025-05-07 16:46:44,592 - >> Train nb img: 19712
-[INFO] 2025-05-07 16:46:44,592 - >> Val nb img: 6592
-[INFO] 2025-05-07 16:46:44,592 - >> Test nb img: 6592
-[INFO] 2025-05-07 16:46:44,625 - Number of classes: 5
-[INFO] 2025-05-07 16:46:44,625 - Class names: ['Cerscospora', 'Healthy', 'Leaf rust', 'Miner', 'Phoma']
-[INFO] 2025-05-07 16:46:47,510 - Selected model type: Custom CNN
-[INFO] 2025-05-07 16:46:48,308 - Create TFLite model: False
-[INFO] 2025-05-07 16:46:49,142 - Create quantized model: False
-[INFO] 2025-05-07 16:46:49,143 - Searching for model: cnn_ep=10_lr=0.001_aug=False
-[INFO] 2025-05-07 16:46:49,143 - Using model: /home/lp8/Documentos/IC_VANT/AI-embedded-vision-VANT-precision-agriculture/Coffee/model/mac
-[INFO] 2025-05-07 16:46:49,143 - Model path: /home/lp8/Documentos/IC_VANT/AI-embedded-vision-VANT-precision-agriculture/Coffee/model/mac/cnn_ep=10_lr=0.001_aug=False.keras
-[INFO] 2025-05-07 16:46:49,143 - Device: lp8
-[INFO] 2025-05-07 16:46:49,143 - Model cnn_ep=10_lr=0.001_aug=False already exists. Loading model.
+[INFO] 2025-05-07 17:01:50,612 - Starting creation of TF models - Dataset Coffee
+[INFO] 2025-05-07 17:01:50,613 - Using device: lp8
+[INFO] 2025-05-07 17:01:50,613 - Dataset exists
+[INFO] 2025-05-07 17:01:50,613 - Creating dataset objects...
+[INFO] 2025-05-07 17:01:51,473 - >> Train nb img: 19712
+[INFO] 2025-05-07 17:01:51,473 - >> Val nb img: 6592
+[INFO] 2025-05-07 17:01:51,473 - >> Test nb img: 6592
+[INFO] 2025-05-07 17:01:51,506 - Number of classes: 5
+[INFO] 2025-05-07 17:01:51,507 - Class names: ['Cerscospora', 'Healthy', 'Leaf rust', 'Miner', 'Phoma']
+[INFO] 2025-05-07 17:02:29,368 - Selected model type: Custom CNN
+[INFO] 2025-05-07 17:02:30,470 - Create TFLite model: False
+[INFO] 2025-05-07 17:02:31,238 - Create quantized model: False
+[INFO] 2025-05-07 17:02:31,238 - Searching for model: cnn_ep=10_lr=0.001_aug=False
+[INFO] 2025-05-07 17:02:31,238 - Using model: /home/lp8/Documentos/IC_VANT/AI-embedded-vision-VANT-precision-agriculture/Coffee/model/mac
+[INFO] 2025-05-07 17:02:31,238 - Model path: /home/lp8/Documentos/IC_VANT/AI-embedded-vision-VANT-precision-agriculture/Coffee/model/mac/cnn_ep=10_lr=0.001_aug=False.keras
+[INFO] 2025-05-07 17:02:31,238 - Device: lp8
+[INFO] 2025-05-07 17:02:31,238 - Model cnn_ep=10_lr=0.001_aug=False already exists. Loading model.

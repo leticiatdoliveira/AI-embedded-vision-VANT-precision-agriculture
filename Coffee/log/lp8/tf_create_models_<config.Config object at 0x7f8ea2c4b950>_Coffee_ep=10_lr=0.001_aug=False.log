@@ -1,0 +1,20 @@
+[INFO] 2025-05-07 17:08:10,763 - Starting creation of TF models - Dataset Coffee
+[INFO] 2025-05-07 17:08:10,764 - Using device: lp8
+[INFO] 2025-05-07 17:08:10,796 - Dataset exists
+[INFO] 2025-05-07 17:08:10,796 - Creating dataset objects...
+[INFO] 2025-05-07 17:08:11,663 - >> Train nb img: 19712
+[INFO] 2025-05-07 17:08:11,663 - >> Val nb img: 6592
+[INFO] 2025-05-07 17:08:11,663 - >> Test nb img: 6592
+[INFO] 2025-05-07 17:08:11,700 - Number of classes: 5
+[INFO] 2025-05-07 17:08:11,700 - Class names: ['Cerscospora', 'Healthy', 'Leaf rust', 'Miner', 'Phoma']
+[INFO] 2025-05-07 17:08:13,840 - Selected model type: Custom CNN
+[INFO] 2025-05-07 17:08:14,415 - Create TFLite model: False
+[INFO] 2025-05-07 17:08:15,023 - Create quantized model: False
+[INFO] 2025-05-07 17:08:15,023 - Searching for model: cnn_ep=10_lr=0.001_aug=False
+[INFO] 2025-05-07 17:08:15,023 - Using model: /home/lp8/Documentos/IC_VANT/AI-embedded-vision-VANT-precision-agriculture/Coffee/model/lp8
+[INFO] 2025-05-07 17:08:15,023 - Model path: /home/lp8/Documentos/IC_VANT/AI-embedded-vision-VANT-precision-agriculture/Coffee/model/lp8/cnn_ep=10_lr=0.001_aug=False.keras
+[INFO] 2025-05-07 17:08:15,024 - Device: lp8
+[INFO] 2025-05-07 17:08:15,036 - Creating and compiling cnn model...
+[INFO] 2025-05-07 17:08:15,125 - Fitting cnn model...
+[INFO] 2025-05-07 17:08:15,125 - 
+--- Training model (cnn_ep=10_lr=0.001_aug=False) ---
