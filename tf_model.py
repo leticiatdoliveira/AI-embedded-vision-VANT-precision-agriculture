@@ -356,9 +356,10 @@ def main():
     """The Main function for training and evaluating plant disease models."""
     # Initialize configuration
     config = Config('Coffee')
+    device = "rasp"
 
     # Initialize logger
-    logger = Logger(config.LOG_PATH, f"tf_create_models_{config.DATASET_TYPE}")
+    logger = Logger(config.LOG_PATH, f"tf_create_models_{device}_{config.DATASET_TYPE}_{config.MODEL_BASE_NAME}")
     logger.info(f"Starting creation of TF models - Dataset {config.DATASET_TYPE}")
 
     # Check environment

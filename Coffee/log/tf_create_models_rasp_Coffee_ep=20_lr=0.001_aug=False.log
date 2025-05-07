@@ -1,0 +1,13 @@
+[INFO] 2025-04-23 20:45:04,994 - Starting creation of TF models - Dataset Coffee
+[INFO] 2025-04-23 20:45:04,997 - Dataset exists
+[INFO] 2025-04-23 20:45:04,997 - Creating dataset objects...
+[INFO] 2025-04-23 20:45:06,343 - >> Train nb img: 19712
+[INFO] 2025-04-23 20:45:06,344 - >> Val nb img: 6592
+[INFO] 2025-04-23 20:45:06,344 - >> Test nb img: 6592
+[INFO] 2025-04-23 20:45:06,401 - Number of classes: 5
+[INFO] 2025-04-23 20:45:06,401 - Class names: ['Cerscospora', 'Healthy', 'Leaf rust', 'Miner', 'Phoma']
+[INFO] 2025-04-23 20:45:06,401 - Searching for model: cnn_ep=20_lr=0.001_aug=False
+[INFO] 2025-04-23 20:45:06,401 - Creating and compiling model...
+[INFO] 2025-04-23 20:45:06,563 - Fitting model...
+[INFO] 2025-04-23 20:45:06,566 - 
+--- Training model (cnn_ep=20_lr=0.001_aug=False) ---

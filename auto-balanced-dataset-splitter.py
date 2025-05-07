@@ -13,7 +13,7 @@ from logger import Logger
 class Config:
     """Configuration class for dataset management."""
 
-    def __init__(self, dataset_type='PlantVillage', plant_culture='Tomato', balance_classes=False):
+    def __init__(self, dataset_type='PlantVillage', plant_culture='', balance_classes=False):
         """
         Initialize configuration with dataset parameters.
 
@@ -277,14 +277,14 @@ def main():
 
     # Initialize configuration
     config = Config(
-        dataset_type='PlantVillage',
-        plant_culture='Tomato',
-        balance_classes=False
+        dataset_type='Coffee',
+        balance_classes=True
     )
     config.create_directories()
+    device = "rasp"
 
     # Init Logger
-    logger = Logger(config.LOG_PATH, f"{config.PLANT_CULTURE}_dataset_split")
+    logger = Logger(config.LOG_PATH, f"dataset_split_{config.PLANT_CULTURE}_{device}")
     logger.info("Starting auto-balanced dataset split")
 
     # Split the data with automatic balancing
