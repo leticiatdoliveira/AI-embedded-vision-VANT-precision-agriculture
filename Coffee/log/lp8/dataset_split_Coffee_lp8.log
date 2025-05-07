@@ -1,0 +1,57 @@
+[INFO] 2025-05-07 16:24:56,841 - Starting auto-balanced dataset split for Coffee on lp8
+[INFO] 2025-05-07 16:24:56,841 - Starting to split data from /home/lp8/Documentos/IC_VANT/AI-embedded-vision-VANT-precision-agriculture/Coffee/data with balancing=True
+[INFO] 2025-05-07 16:24:57,036 - Original class distribution:
+[INFO] 2025-05-07 16:24:57,036 -   Cerscospora: 7681 images
+[INFO] 2025-05-07 16:24:57,036 -   Healthy: 18983 images
+[INFO] 2025-05-07 16:24:57,036 -   Leaf rust: 8336 images
+[INFO] 2025-05-07 16:24:57,036 -   Miner: 16978 images
+[INFO] 2025-05-07 16:24:57,036 -   Phoma: 6571 images
+[INFO] 2025-05-07 16:24:57,036 - Class distribution statistics:
+[INFO] 2025-05-07 16:24:57,036 -   Total classes: 5
+[INFO] 2025-05-07 16:24:57,036 -   Total images: 58549
+[INFO] 2025-05-07 16:24:57,036 -   Average images per class: 11709.80
+[INFO] 2025-05-07 16:24:57,036 -   Minimum class size: 6571 ('Phoma')
+[INFO] 2025-05-07 16:24:57,036 -   Maximum class size: 18983 ('Healthy')
+[INFO] 2025-05-07 16:24:57,036 -   Imbalance ratio (max/min): 2.89x
+[INFO] 2025-05-07 16:24:57,036 - Automatically under-sampling all classes to match smallest class: 6571 images per class
+[INFO] 2025-05-07 16:24:57,036 - Processing class: Phoma
+[INFO] 2025-05-07 16:25:48,113 - Class Phoma: 3942 train, 1314 validation, 1315 test
+[INFO] 2025-05-07 16:25:48,113 - Processing class: Leaf rust
+[INFO] 2025-05-07 16:25:48,167 - Under-sampling class Leaf rust from 8336 to 6571 images
+[INFO] 2025-05-07 16:26:36,688 - Class Leaf rust: 3942 train, 1314 validation, 1315 test
+[INFO] 2025-05-07 16:26:36,688 - Processing class: Cerscospora
+[INFO] 2025-05-07 16:26:36,756 - Under-sampling class Cerscospora from 7681 to 6571 images
+[INFO] 2025-05-07 16:27:23,747 - Class Cerscospora: 3942 train, 1314 validation, 1315 test
+[INFO] 2025-05-07 16:27:23,747 - Processing class: Miner
+[INFO] 2025-05-07 16:27:23,839 - Under-sampling class Miner from 16978 to 6571 images
+[INFO] 2025-05-07 16:28:43,668 - Class Miner: 3942 train, 1314 validation, 1315 test
+[INFO] 2025-05-07 16:28:43,669 - Processing class: Healthy
+[INFO] 2025-05-07 16:28:43,783 - Under-sampling class Healthy from 18983 to 6571 images
+[INFO] 2025-05-07 16:30:02,598 - Class Healthy: 3942 train, 1314 validation, 1315 test
+[INFO] 2025-05-07 16:30:02,765 - Balance quality measures (lower CV = better balance):
+[INFO] 2025-05-07 16:30:02,765 -   Train: CV=0.0000, Mean=3942.00, StdDev=0.00
+[INFO] 2025-05-07 16:30:02,765 -   Validation: CV=0.0000, Mean=1314.00, StdDev=0.00
+[INFO] 2025-05-07 16:30:02,765 -   Test: CV=0.0000, Mean=1315.00, StdDev=0.00
+[INFO] 2025-05-07 16:30:02,765 - Train dataset class distribution:
+[INFO] 2025-05-07 16:30:02,765 -   Cerscospora: 3942 images
+[INFO] 2025-05-07 16:30:02,765 -   Healthy: 3942 images
+[INFO] 2025-05-07 16:30:02,765 -   Leaf rust: 3942 images
+[INFO] 2025-05-07 16:30:02,765 -   Miner: 3942 images
+[INFO] 2025-05-07 16:30:02,765 -   Phoma: 3942 images
+[INFO] 2025-05-07 16:30:02,765 - Validation dataset class distribution:
+[INFO] 2025-05-07 16:30:02,765 -   Cerscospora: 1314 images
+[INFO] 2025-05-07 16:30:02,765 -   Healthy: 1314 images
+[INFO] 2025-05-07 16:30:02,765 -   Leaf rust: 1314 images
+[INFO] 2025-05-07 16:30:02,765 -   Miner: 1314 images
+[INFO] 2025-05-07 16:30:02,765 -   Phoma: 1314 images
+[INFO] 2025-05-07 16:30:02,766 - Test dataset class distribution:
+[INFO] 2025-05-07 16:30:02,766 -   Cerscospora: 1315 images
+[INFO] 2025-05-07 16:30:02,766 -   Healthy: 1315 images
+[INFO] 2025-05-07 16:30:02,766 -   Leaf rust: 1315 images
+[INFO] 2025-05-07 16:30:02,766 -   Miner: 1315 images
+[INFO] 2025-05-07 16:30:02,766 -   Phoma: 1315 images
+[INFO] 2025-05-07 16:30:02,766 - Train Dataset: 19710 images, 5 classes
+[INFO] 2025-05-07 16:30:02,766 - Validation Dataset: 6570 images, 5 classes
+[INFO] 2025-05-07 16:30:02,766 - Test Dataset: 6575 images, 5 classes
+[INFO] 2025-05-07 16:30:02,766 - Total images in split dataset: 32855
+[INFO] 2025-05-07 16:30:02,766 - Dataset split completed successfully!

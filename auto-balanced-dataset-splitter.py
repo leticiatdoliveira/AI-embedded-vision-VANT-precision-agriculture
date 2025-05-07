@@ -117,7 +117,7 @@ def split_data_from_drive_balanced(config, logger, train_ratio=0.6, validation_r
     # Process each class directory
     for class_name in os.listdir(config.DATA_PATH):
         # Skip if filter_prefix is specified and class name doesn't contain it
-        if config.PLANT_CULTURE and config.PLANT_CULTURE not in class_name:
+        if config.DATASET_TYPE == 'PlantVillage' and config.PLANT_CULTURE not in class_name:
             continue
 
         class_dir = os.path.join(config.DATA_PATH, class_name)

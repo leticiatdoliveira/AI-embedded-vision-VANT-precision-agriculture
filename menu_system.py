@@ -1,5 +1,7 @@
 """Menu system for model training options."""
 
+# TODO: ADD A OPTION ALL TYPE OF MODELS
+
 class MenuSystem:
     """Handles user interaction for model training options."""
     

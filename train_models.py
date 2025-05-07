@@ -1,5 +1,7 @@
 """Main script for training and evaluating plant disease models."""
 
+# TODO: add ep as arg
+
 import os
 import argparse
 from tensorflow import keras

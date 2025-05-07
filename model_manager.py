@@ -21,9 +21,13 @@ class ModelManager:
     def build_and_train_model(self, model_type, datasets, num_classes):
         """Build and train a model of the specified type."""
         model_name = f"{model_type}_" + self.config.MODEL_BASE_NAME
-        model_path = os.path.join(self.config.MODEL_PATH, f"{model_name}.keras")
+        model_dir = self.config.MODEL_PATH
+        model_path = os.path.join(model_dir, f"{model_name}.keras")
         
         self.logger.info(f"Searching for model: {model_name}")
+        self.logger.info(f"Using model: {model_dir}")
+        self.logger.info(f"Model path: {model_path}")
+        self.logger.info(f"Device: {self.config.DEVICE}")
         
         if os.path.exists(model_path):
             self.logger.info(f"Model {model_name} already exists. Loading model.")
