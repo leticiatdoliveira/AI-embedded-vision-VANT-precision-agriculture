@@ -58,14 +58,15 @@ class ModelBuilder:
         # Freeze the base model layers
         base_model.trainable = False
         
-        # Create a new model on top
-        model = keras.Sequential([
-            base_model,
-            keras.layers.GlobalAveragePooling2D(),
-            keras.layers.Dropout(0.2),
-            keras.layers.Dense(128, activation='relu'),
-            keras.layers.Dense(num_classes, activation='softmax')
-        ])
+        # Create a new model using Functional API instead of Sequential
+        inputs = tf.keras.Input(shape=(self.config.IMG_SIZE[0], self.config.IMG_SIZE[1], 3))
+        x = base_model(inputs, training=False)
+        x = keras.layers.GlobalAveragePooling2D()(x)
+        x = keras.layers.Dropout(0.2)(x)
+        x = keras.layers.Dense(128, activation='relu')(x)
+        outputs = keras.layers.Dense(num_classes, activation='softmax')(x)
+        
+        model = keras.Model(inputs, outputs)
         
         return model
         
