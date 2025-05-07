@@ -4,55 +4,12 @@ import numpy as np
 import tensorflow as tf
 import time
 import tracemalloc
+import argparse  # Add this import
 from PIL import Image
 import matplotlib.pyplot as plt
 from logger import Logger
 import tensorflow_model_optimization as tfmot
-
-class Config:
-    """Configuration parameters for model inference."""
-
-    def __init__(self, dataset_type, set_type, epochs):
-        # Constants
-        self.IMG_SIZE = (224, 224)
-        self.BATCH_SIZE = 32
-        self.EPOCHS = epochs
-        self.LEARNING_RATE = 0.001
-        self.DATA_AUGMENTATION = False
-        self.DATASET_TYPE = dataset_type
-        self.SET_TYPE = set_type
-        self.MODEL_BASE_NAME = f"ep={self.EPOCHS}_lr={self.LEARNING_RATE}_aug={self.DATA_AUGMENTATION}"
-        self.MODEL_NAME = f"cnn_{self.MODEL_BASE_NAME}.keras"
-        self.TFLITE_MODEL_NAME = f"cnn_{self.MODEL_BASE_NAME}.tflite"
-        self.QUANT_MODEL_NAME = f"cnn_quant_{self.MODEL_BASE_NAME}.h5"
-        self.QUANT_LITE_MODEL_NAME = f"cnn_quant_{self.MODEL_BASE_NAME}.tflite"
-        self.SEED = 42
-
-        # Path setup
-        self.ROOT_PATH = os.getcwd()
-        self.PROJECT_PATH = os.path.join(self.ROOT_PATH, self.DATASET_TYPE)
-        self.DATASET_PATH = os.path.join(self.PROJECT_PATH, 'dataset')
-        self.MODEL_PATH = os.path.join(self.PROJECT_PATH, 'model')
-        self.RESULT_PATH = os.path.join(self.PROJECT_PATH, 'results')
-        self.INFERENCES_PATH = os.path.join(self.RESULT_PATH, 'inferences')
-        self.LOG_PATH = os.path.join(self.PROJECT_PATH, 'log')
-
-        # Dataset paths
-        self.TEST_DIR = os.path.join(self.DATASET_PATH, self.SET_TYPE)
-
-        # Timestamp for organization
-        self.TIMESTAMP = time.strftime("%Y%m%d-%H%M%S")
-        self.INFERENCE_SESSION = f"inference_{self.TIMESTAMP}"
-        self.CURRENT_INFERENCE_PATH = os.path.join(self.INFERENCES_PATH, self.INFERENCE_SESSION)
-
-    def create_directories(self):
-        """Create necessary directories if they don't exist."""
-        for path in [self.PROJECT_PATH, self.DATASET_PATH, self.MODEL_PATH,
-                     self.RESULT_PATH, self.INFERENCES_PATH, self.CURRENT_INFERENCE_PATH,
-                     self.LOG_PATH]:
-            if not os.path.exists(path):
-                print(f"Creating directory {path}")
-                os.makedirs(path)
+from config import Config  # Import the central Config class
 
 
 class DataLoader:
@@ -490,13 +447,42 @@ def compare_model_results(results_dict, config, logger):
 
 def main():
     """Main function to run TF models inference."""
-    # Initialize configuration
-    config = Config('Coffee', 'test', 20)
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='Run inference on trained models.')
+    parser.add_argument('--dataset', type=str, default='Coffee', 
+                        help='Dataset name (e.g., Coffee, PlantVillage)')
+    parser.add_argument('--device', type=str, default='rasp',
+                        help='Device type (e.g., rasp, desktop)')
+    args = parser.parse_args()
+    
+    # Initialize configuration using the central Config class
+    config = Config(args.dataset, args.device)
+    
+    # Add inference-specific attributes
+    config.SET_TYPE = 'test'
+    config.TIMESTAMP = time.strftime("%Y%m%d-%H%M%S")
+    config.INFERENCE_SESSION = f"inference_{config.TIMESTAMP}"
+    config.INFERENCES_PATH = os.path.join(config.RESULT_PATH, 'inferences')
+    config.CURRENT_INFERENCE_PATH = os.path.join(config.INFERENCES_PATH, config.INFERENCE_SESSION)
+    config.TEST_DIR = os.path.join(config.DATASET_PATH, config.SET_TYPE)
+    
+    # Set model names
+    config.MODEL_NAME = f"cnn_{config.MODEL_BASE_NAME}.keras"
+    config.TFLITE_MODEL_NAME = f"cnn_{config.MODEL_BASE_NAME}.tflite"
+    config.QUANT_MODEL_NAME = f"cnn_quant_{config.MODEL_BASE_NAME}.h5"
+    config.QUANT_LITE_MODEL_NAME = f"cnn_quant_{config.MODEL_BASE_NAME}.tflite"
+    
+    # Create additional directories needed for inference
+    if not os.path.exists(config.INFERENCES_PATH):
+        os.makedirs(config.INFERENCES_PATH)
+    if not os.path.exists(config.CURRENT_INFERENCE_PATH):
+        os.makedirs(config.CURRENT_INFERENCE_PATH)
+    
     config.create_directories()
 
     # Initialize logger
-    logger = Logger(config.LOG_PATH, f"tf_models_inference_{config.SET_TYPE}")
-    logger.info(f"Starting TF models inference - Dataset {config.DATASET_TYPE} - Set {config.SET_TYPE}")
+    logger = Logger(config.LOG_PATH, f"tf_models_inference_{config.DEVICE}_{config.DATASET_TYPE}_{config.SET_TYPE}")
+    logger.info(f"Starting TF models inference - Dataset {config.DATASET_TYPE} - Device {config.DEVICE} - Set {config.SET_TYPE}")
 
     # Initialize DataLoader
     data_loader = DataLoader(config, logger)

@@ -7,51 +7,9 @@ Automatically detects smallest class size and under samples all classes to match
 import os
 import random
 import shutil
+import argparse  # Add this import
 from logger import Logger
-
-
-class Config:
-    """Configuration class for dataset management."""
-
-    def __init__(self, dataset_type='PlantVillage', plant_culture='', balance_classes=False):
-        """
-        Initialize configuration with dataset parameters.
-
-        Args:
-            dataset_type: Type of dataset ('Coffee' or 'PlantVillage')
-            plant_culture: Plant culture name (only used for PlantVillage)
-            balance_classes: Whether to balance classes by under-sampling
-        """
-        # Set seed for reproducibility
-        self.SEED_VALUE = 42
-        random.seed(self.SEED_VALUE)
-        os.environ['PYTHONHASHSEED'] = str(self.SEED_VALUE)
-
-        # Dataset configuration
-        self.DATASET_TYPE = dataset_type
-        self.PLANT_CULTURE = plant_culture
-        self.BALANCE_CLASSES = balance_classes
-
-        # Path setup
-        self.root_path = os.getcwd()
-        self.project_path = os.path.join(self.root_path, f'{self.DATASET_TYPE}')
-        self.DATA_PATH = os.path.join(self.project_path, 'data')
-        self.DATASET_PATH = os.path.join(self.project_path, 'dataset')
-        self.MODEL_PATH = os.path.join(self.project_path, 'model')
-        self.LOG_PATH = os.path.join(self.project_path, 'log')
-
-        # Dataset split path
-        self.TRAIN_PATH = os.path.join(self.DATASET_PATH, 'train')
-        self.VALIDATION_PATH = os.path.join(self.DATASET_PATH, 'validation')
-        self.TEST_PATH = os.path.join(self.DATASET_PATH, 'test')
-
-    def create_directories(self):
-        """Create all necessary directories if they don't exist."""
-        for dir_path in [self.project_path, self.DATASET_PATH, self.MODEL_PATH, self.LOG_PATH,
-                         self.TRAIN_PATH, self.VALIDATION_PATH, self.TEST_PATH]:
-            if not os.path.exists(dir_path):
-                os.makedirs(dir_path)
-                print(f"Created directory: {dir_path}")
+from config import Config  # Import the central Config class
 
 
 def analyze_class_distribution(source_data_path, filter_prefix=None):
@@ -275,24 +233,43 @@ def check_balance_quality(class_counts):
 def main():
     print("Starting auto-balanced dataset split")
 
-    # Initialize configuration
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='Split dataset with automatic balancing.')
+    parser.add_argument('--dataset', type=str, default='Coffee', 
+                        help='Dataset name (e.g., Coffee, PlantVillage)')
+    parser.add_argument('--device', type=str, default='rasp',
+                        help='Device type (e.g., rasp, desktop)')
+    args = parser.parse_args()
+
+    # Initialize configuration using the central Config class
     config = Config(
-        dataset_type='Coffee',
-        balance_classes=True
+        dataset_type=args.dataset,
+        device=args.device
     )
+    # Add balance_classes attribute
+    config.BALANCE_CLASSES = True
     config.create_directories()
-    device = "rasp"
 
     # Init Logger
-    logger = Logger(config.LOG_PATH, f"dataset_split_{config.PLANT_CULTURE}_{device}")
-    logger.info("Starting auto-balanced dataset split")
+    logger = Logger(config.LOG_PATH, f"dataset_split_{config.DATASET_TYPE}_{config.DEVICE}")
+    logger.info(f"Starting auto-balanced dataset split for {config.DATASET_TYPE} on {config.DEVICE}")
 
-    # Split the data with automatic balancing
+    # Update path references if needed
+    # For example, if the central Config uses different path names
+    config.TRAIN_PATH = config.TRAIN_DIR
+    config.VALIDATION_PATH = config.VAL_DIR
+    config.TEST_PATH = config.TEST_DIR
+    config.DATA_PATH = os.path.join(config.PROJECT_PATH, 'data')
+
+    # Import constants for dataset split ratios
+    from constants import TRAIN_RATIO, VALIDATION_RATIO
+
+    # Split the data with automatic balancing using constants
     split_data_from_drive_balanced(
         config=config,
         logger=logger,
-        train_ratio=0.6,
-        validation_ratio=0.2
+        train_ratio=TRAIN_RATIO,
+        validation_ratio=VALIDATION_RATIO
     )
 
     # Verify split results using Config paths
