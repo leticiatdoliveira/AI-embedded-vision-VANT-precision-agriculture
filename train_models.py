@@ -93,6 +93,11 @@ def main():
     # Model summary
     model.summary()
     
+    # Save detailed model information to log
+    logger.info("Detailed Model Information:")
+    for i, layer in enumerate(model.layers):
+        logger.info(f"Layer {i}: {layer.name}, Type: {type(layer).__name__}, Output Shape: {layer.output_shape}, Params: {layer.count_params()}")
+    
     # Evaluate the model
     model_manager.evaluate_model(model_type, current_datasets)
     
