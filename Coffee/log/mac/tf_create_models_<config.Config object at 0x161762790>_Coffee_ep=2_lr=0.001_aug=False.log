@@ -1,0 +1,40 @@
+[INFO] 2025-05-07 21:23:18,966 - Starting creation of TF models - Dataset Coffee
+[INFO] 2025-05-07 21:23:18,966 - Using device: mac
+[INFO] 2025-05-07 21:23:18,966 - Training for 2 epochs
+[INFO] 2025-05-07 21:23:18,966 - Dataset exists
+[INFO] 2025-05-07 21:23:18,966 - Creating dataset objects...
+[INFO] 2025-05-07 21:23:19,503 - >> Train nb img: 19712
+[INFO] 2025-05-07 21:23:19,503 - >> Val nb img: 6592
+[INFO] 2025-05-07 21:23:19,503 - >> Test nb img: 6592
+[INFO] 2025-05-07 21:23:19,528 - Number of classes: 5
+[INFO] 2025-05-07 21:23:19,528 - Class names: ['Cerscospora', 'Healthy', 'Leaf rust', 'Miner', 'Phoma']
+[INFO] 2025-05-07 21:23:22,951 - Selected model type: MobileNet
+[INFO] 2025-05-07 21:23:23,625 - Create TFLite model: True
+[INFO] 2025-05-07 21:23:24,344 - Create quantized model: True
+[INFO] 2025-05-07 21:23:25,145 - Create quantized TFLite model: True
+[INFO] 2025-05-07 21:23:25,145 - Creating MobileNet-specific dataset objects...
+[INFO] 2025-05-07 21:23:25,666 - >> Train nb img: 19712
+[INFO] 2025-05-07 21:23:25,666 - >> Val nb img: 6592
+[INFO] 2025-05-07 21:23:25,666 - >> Test nb img: 6592
+[INFO] 2025-05-07 21:23:25,689 - Searching for model: mobilenet_ep=2_lr=0.001_aug=False
+[INFO] 2025-05-07 21:23:25,689 - Using model: /Users/tempone/Git/IC_vant/AI-vision-based-precision-agriculture/Coffee/model/mac
+[INFO] 2025-05-07 21:23:25,689 - Model path: /Users/tempone/Git/IC_vant/AI-vision-based-precision-agriculture/Coffee/model/mac/mobilenet_ep=2_lr=0.001_aug=False.keras
+[INFO] 2025-05-07 21:23:25,689 - Device: mac
+[INFO] 2025-05-07 21:23:25,689 - Creating and compiling mobilenet model...
+[INFO] 2025-05-07 21:23:26,654 - MobileNet model built successfully
+[INFO] 2025-05-07 21:23:26,662 - Fitting mobilenet model...
+[INFO] 2025-05-07 21:23:26,662 - 
+--- Training model (mobilenet_ep=2_lr=0.001_aug=False) ---
+[INFO] 2025-05-07 21:28:53,529 - Fit time: 326.87 seconds
+[INFO] 2025-05-07 21:28:53,532 - Fit memory usage: 12.69 MiB; Peak: 13.96 MiB
+[INFO] 2025-05-07 21:28:53,532 - Saving the mobilenet model...
+[INFO] 2025-05-07 21:28:53,775 - 
+--- Evaluating mobilenet model ---
+[INFO] 2025-05-07 21:31:04,497 - train accuracy: 0.5532
+[INFO] 2025-05-07 21:31:48,619 - validation accuracy: 0.5505
+[INFO] 2025-05-07 21:32:22,699 - test accuracy: 0.5481
+[INFO] 2025-05-07 21:32:22,763 - 
+--- Converting mobilenet to TFLite model  ---
+[INFO] 2025-05-07 21:32:29,259 - TFLite model saved to: /Users/tempone/Git/IC_vant/AI-vision-based-precision-agriculture/Coffee/model/mac/mobilenet_ep=2_lr=0.001_aug=False.tflite
+[INFO] 2025-05-07 21:32:29,261 - 
+--- Creating quantization-aware mobilenet model ---

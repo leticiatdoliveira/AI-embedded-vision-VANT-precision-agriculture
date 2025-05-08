@@ -1,7 +1,5 @@
 """Main script for training and evaluating plant disease models."""
 
-# TODO: add ep as arg
-
 import os
 import argparse
 from tensorflow import keras
@@ -26,16 +24,20 @@ def main():
                         help='Dataset name (e.g., Coffee, PlantVillage)')
     parser.add_argument('--device', type=str, default='rasp',
                         help='Device type (e.g., rasp, desktop)')
+    parser.add_argument('--epochs', type=int, default=10,
+                        help='Number of training epochs')
     args = parser.parse_args()
     
     # Initialize configuration with command line arguments
-    config = Config(args.dataset, args.device)
+    config = Config(args.dataset, args.device, args.epochs)
     print(f"Checking config dataset and device: {config.DATASET_TYPE} and device: {config.DEVICE}")
+    print(f"Training for {config.EPOCHS} epochs")
 
     # Initialize logger
     logger = Logger(config.LOG_PATH, f"tf_create_models_{config}_{config.DATASET_TYPE}_{config.MODEL_BASE_NAME}")
     logger.info(f"Starting creation of TF models - Dataset {config.DATASET_TYPE}")
     logger.info(f"Using device: {config.DEVICE}")
+    logger.info(f"Training for {config.EPOCHS} epochs")
 
     # Check environment
     Utils.check_gpu()

@@ -48,27 +48,40 @@ class ModelBuilder:
         
     def build_mobilenet_model(self, num_classes):
         """Build a MobileNetV2-based model with transfer learning."""
-        # Load the MobileNetV2 model with pre-trained weights
-        base_model = tf.keras.applications.MobileNetV2(
-            input_shape=(self.config.IMG_SIZE[0], self.config.IMG_SIZE[1], 3),
-            include_top=False,
-            weights='imagenet'
-        )
-        
-        # Freeze the base model layers
-        base_model.trainable = False
-        
-        # Create a new model using Functional API instead of Sequential
-        inputs = tf.keras.Input(shape=(self.config.IMG_SIZE[0], self.config.IMG_SIZE[1], 3))
-        x = base_model(inputs, training=False)
-        x = keras.layers.GlobalAveragePooling2D()(x)
-        x = keras.layers.Dropout(0.2)(x)
-        x = keras.layers.Dense(128, activation='relu')(x)
-        outputs = keras.layers.Dense(num_classes, activation='softmax')(x)
-        
-        model = keras.Model(inputs, outputs)
-        
-        return model
+        try:
+            # Load the MobileNetV2 model with pre-trained weights
+            base_model = tf.keras.applications.MobileNetV2(
+                input_shape=(self.config.IMG_SIZE[0], self.config.IMG_SIZE[1], 3),
+                include_top=False,
+                weights='imagenet'
+            )
+            
+            # Freeze the base model layers
+            base_model.trainable = False
+            
+            # Create a new model using Functional API
+            inputs = tf.keras.Input(shape=(self.config.IMG_SIZE[0], self.config.IMG_SIZE[1], 3))
+            
+            # Apply data preprocessing required by MobileNetV2
+            x = tf.keras.applications.mobilenet_v2.preprocess_input(inputs)
+            
+            # Pass the inputs through the base model
+            x = base_model(x)
+            
+            # Add classification head
+            x = layers.GlobalAveragePooling2D()(x)
+            x = layers.Dropout(0.2)(x)
+            x = layers.Dense(128, activation='relu')(x)
+            outputs = layers.Dense(num_classes, activation='softmax')(x)
+            
+            model = tf.keras.Model(inputs=inputs, outputs=outputs)
+            
+            self.logger.info("MobileNet model built successfully")
+            return model
+            
+        except Exception as e:
+            self.logger.error(f"Error building MobileNet model: {str(e)}")
+            raise
         
     @staticmethod
     def create_quantized_model(model):
@@ -80,7 +93,8 @@ class ModelBuilder:
         if learning_rate is None:
             learning_rate = self.config.LEARNING_RATE
 
-        optimizer = tf.keras.optimizers.legacy.Adam(learning_rate=learning_rate)
+        # Use the new Keras 3 optimizer API instead of legacy
+        optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
         model.compile(
             optimizer=optimizer,
             loss='categorical_crossentropy',

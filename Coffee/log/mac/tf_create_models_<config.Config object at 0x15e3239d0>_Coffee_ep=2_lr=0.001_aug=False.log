@@ -1,0 +1,26 @@
+[INFO] 2025-05-07 21:22:41,351 - Starting creation of TF models - Dataset Coffee
+[INFO] 2025-05-07 21:22:41,351 - Using device: mac
+[INFO] 2025-05-07 21:22:41,351 - Training for 2 epochs
+[INFO] 2025-05-07 21:22:41,351 - Dataset exists
+[INFO] 2025-05-07 21:22:41,351 - Creating dataset objects...
+[INFO] 2025-05-07 21:22:41,931 - >> Train nb img: 19712
+[INFO] 2025-05-07 21:22:41,931 - >> Val nb img: 6592
+[INFO] 2025-05-07 21:22:41,932 - >> Test nb img: 6592
+[INFO] 2025-05-07 21:22:41,954 - Number of classes: 5
+[INFO] 2025-05-07 21:22:41,954 - Class names: ['Cerscospora', 'Healthy', 'Leaf rust', 'Miner', 'Phoma']
+[INFO] 2025-05-07 21:22:58,388 - Selected model type: MobileNet
+[INFO] 2025-05-07 21:23:00,444 - Create TFLite model: False
+[INFO] 2025-05-07 21:23:04,603 - Create quantized model: False
+[INFO] 2025-05-07 21:23:04,604 - Creating MobileNet-specific dataset objects...
+[INFO] 2025-05-07 21:23:05,121 - >> Train nb img: 19712
+[INFO] 2025-05-07 21:23:05,121 - >> Val nb img: 6592
+[INFO] 2025-05-07 21:23:05,121 - >> Test nb img: 6592
+[INFO] 2025-05-07 21:23:05,147 - Searching for model: mobilenet_ep=2_lr=0.001_aug=False
+[INFO] 2025-05-07 21:23:05,147 - Using model: /Users/tempone/Git/IC_vant/AI-vision-based-precision-agriculture/Coffee/model/mac
+[INFO] 2025-05-07 21:23:05,147 - Model path: /Users/tempone/Git/IC_vant/AI-vision-based-precision-agriculture/Coffee/model/mac/mobilenet_ep=2_lr=0.001_aug=False.keras
+[INFO] 2025-05-07 21:23:05,147 - Device: mac
+[INFO] 2025-05-07 21:23:05,147 - Creating and compiling mobilenet model...
+[INFO] 2025-05-07 21:23:06,126 - MobileNet model built successfully
+[INFO] 2025-05-07 21:23:06,134 - Fitting mobilenet model...
+[INFO] 2025-05-07 21:23:06,135 - 
+--- Training model (mobilenet_ep=2_lr=0.001_aug=False) ---

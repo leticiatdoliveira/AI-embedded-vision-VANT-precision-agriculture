@@ -4,7 +4,7 @@ import numpy as np
 import tensorflow as tf
 import time
 import tracemalloc
-import argparse  # Add this import
+import argparse
 from PIL import Image
 import matplotlib.pyplot as plt
 from logger import Logger
@@ -446,17 +446,19 @@ def compare_model_results(results_dict, config, logger):
 
 
 def main():
-    """Main function to run TF models inference."""
+    """Main function for model inference."""
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='Run inference on trained models.')
-    parser.add_argument('--dataset', type=str, default='Coffee', 
+    parser.add_argument('--dataset', type=str, default='Coffee',
                         help='Dataset name (e.g., Coffee, PlantVillage)')
     parser.add_argument('--device', type=str, default='rasp',
                         help='Device type (e.g., rasp, desktop)')
+    parser.add_argument('--epochs', type=int, default=10,
+                        help='Number of epochs used in training (for model path)')
     args = parser.parse_args()
     
-    # Initialize configuration using the central Config class
-    config = Config(args.dataset, args.device)
+    # Initialize configuration with command line arguments
+    config = Config(args.dataset, args.device, args.epochs)
     
     # Add inference-specific attributes
     config.SET_TYPE = 'test'
