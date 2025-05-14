@@ -237,7 +237,7 @@ def main():
     parser = argparse.ArgumentParser(description='Split dataset with automatic balancing.')
     parser.add_argument('--dataset', type=str, default='Coffee', 
                         help='Dataset name (e.g., Coffee, PlantVillage)')
-    parser.add_argument('--plant', type=str, default=None,
+    parser.add_argument('--culture', type=str, default=None,
                         help='Plant culture (e.g., Tomato, Pepper)')
     parser.add_argument('--device', type=str, default='rasp',
                         help='Device type (e.g., rasp, desktop)')
@@ -247,7 +247,8 @@ def main():
     # Initialize configuration using the central Config class
     config = Config(
         dataset_type=args.dataset,
-        device=args.device
+        device=args.device,
+        culture=args.culture
     )
     # Add balance_classes attribute
     config.BALANCE_CLASSES = True

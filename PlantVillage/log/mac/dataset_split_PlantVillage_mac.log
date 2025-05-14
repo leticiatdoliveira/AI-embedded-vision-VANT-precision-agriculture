@@ -1,0 +1,45 @@
+[INFO] 2025-05-14 15:40:39,492 - Starting auto-balanced dataset split for PlantVillage on mac
+[INFO] 2025-05-14 15:40:39,492 - Starting to split data from /Users/tempone/Git/IC_vant/AI-vision-based-precision-agriculture/PlantVillage/data with balancing=True
+[ERROR] 2025-05-14 15:40:39,492 - Error: Source path /Users/tempone/Git/IC_vant/AI-vision-based-precision-agriculture/PlantVillage/data does not exist!
+[INFO] 2025-05-14 15:40:39,866 - Balance quality measures (lower CV = better balance):
+[INFO] 2025-05-14 15:40:39,867 -   Train: CV=0.4556, Mean=960.20, StdDev=437.48
+[INFO] 2025-05-14 15:40:39,867 -   Validation: CV=0.4559, Mean=319.80, StdDev=145.80
+[INFO] 2025-05-14 15:40:39,867 -   Test: CV=0.4545, Mean=321.10, StdDev=145.95
+[INFO] 2025-05-14 15:40:39,867 - Train dataset class distribution:
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Bacterial_spot: 1276 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Early_blight: 600 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Late_blight: 1145 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Leaf_Mold: 571 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Septoria_leaf_spot: 1062 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Spider_mites_Two_spotted_spider_mite: 1005 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato__Target_Spot: 842 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato__Tomato_YellowLeaf__Curl_Virus: 1924 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato__Tomato_mosaic_virus: 223 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_healthy: 954 images
+[INFO] 2025-05-14 15:40:39,867 - Validation dataset class distribution:
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Bacterial_spot: 425 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Early_blight: 200 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Late_blight: 381 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Leaf_Mold: 190 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Septoria_leaf_spot: 354 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Spider_mites_Two_spotted_spider_mite: 335 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato__Target_Spot: 280 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato__Tomato_YellowLeaf__Curl_Virus: 641 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato__Tomato_mosaic_virus: 74 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_healthy: 318 images
+[INFO] 2025-05-14 15:40:39,867 - Test dataset class distribution:
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Bacterial_spot: 426 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Early_blight: 200 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Late_blight: 383 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Leaf_Mold: 191 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Septoria_leaf_spot: 355 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_Spider_mites_Two_spotted_spider_mite: 336 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato__Target_Spot: 282 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato__Tomato_YellowLeaf__Curl_Virus: 643 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato__Tomato_mosaic_virus: 76 images
+[INFO] 2025-05-14 15:40:39,867 -   Tomato_healthy: 319 images
+[INFO] 2025-05-14 15:40:39,867 - Train Dataset: 9602 images, 10 classes
+[INFO] 2025-05-14 15:40:39,867 - Validation Dataset: 3198 images, 10 classes
+[INFO] 2025-05-14 15:40:39,867 - Test Dataset: 3211 images, 10 classes
+[INFO] 2025-05-14 15:40:39,867 - Total images in split dataset: 16011
+[INFO] 2025-05-14 15:40:39,867 - Dataset split completed successfully!
