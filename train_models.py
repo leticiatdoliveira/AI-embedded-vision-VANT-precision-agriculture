@@ -46,14 +46,12 @@ def main():
     model_type = choices['model_type']
     
     # Initialize logger with model type included in the filename
-    logger = Logger(config.LOG_PATH, f"tf_create_models_{config}_{config.DATASET_TYPE}_{model_type}_{config.MODEL_BASE_NAME}_bs{config.BATCH_SIZE}")
+    logger = Logger(config.LOG_PATH, f"tf_create_models_{config.DATASET_TYPE}_{model_type}_{config.MODEL_BASE_NAME}_bs{config.BATCH_SIZE}")
     logger.info(f"Starting creation of TF models - Dataset {config.DATASET_TYPE}")
     logger.info(f"Using device: {config.DEVICE}")
     logger.info(f"Training for {config.EPOCHS} epochs")
     logger.info(f"Using batch size: {config.BATCH_SIZE}")
     logger.info(f"Selected model type: {model_type}")
-    
-    exit(0)
 
     # Check environment
     Utils.check_gpu()

@@ -1,5 +1,0 @@
-[INFO] 2025-05-14 16:33:03,896 - Starting creation of TF models - Dataset PlantVillage
-[INFO] 2025-05-14 16:33:03,897 - Using device: lp8
-[INFO] 2025-05-14 16:33:03,897 - Training for 20 epochs
-[INFO] 2025-05-14 16:33:03,897 - Using batch size: 16
-[INFO] 2025-05-14 16:33:03,897 - Selected model type: cnn

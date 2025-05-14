@@ -1,0 +1,20 @@
+[INFO] 2025-05-14 16:38:37,836 - Starting creation of TF models - Dataset PlantVillage
+[INFO] 2025-05-14 16:38:37,837 - Using device: lp8
+[INFO] 2025-05-14 16:38:37,837 - Training for 20 epochs
+[INFO] 2025-05-14 16:38:37,837 - Using batch size: 16
+[INFO] 2025-05-14 16:38:37,837 - Selected model type: cnn
+[INFO] 2025-05-14 16:38:37,838 - Dataset exists
+[INFO] 2025-05-14 16:38:37,839 - Creating dataset objects...
+[INFO] 2025-05-14 16:38:38,465 - >> Train nb img: 9616
+[INFO] 2025-05-14 16:38:38,466 - >> Val nb img: 3200
+[INFO] 2025-05-14 16:38:38,466 - >> Test nb img: 3216
+[INFO] 2025-05-14 16:38:38,497 - Number of classes: 10
+[INFO] 2025-05-14 16:38:38,497 - Class names: ['Tomato_Bacterial_spot', 'Tomato_Early_blight', 'Tomato_Late_blight', 'Tomato_Leaf_Mold', 'Tomato_Septoria_leaf_spot', 'Tomato_Spider_mites_Two_spotted_spider_mite', 'Tomato__Target_Spot', 'Tomato__Tomato_YellowLeaf__Curl_Virus', 'Tomato__Tomato_mosaic_virus', 'Tomato_healthy']
+[INFO] 2025-05-14 16:38:38,497 - Searching for model: cnn_ep=20_lr=0.001_aug=False
+[INFO] 2025-05-14 16:38:38,497 - Using model: /home/lp8/Documentos/IC-VANT/AI-embedded-vision-VANT-precision-agriculture/PlantVillage/model/lp8
+[INFO] 2025-05-14 16:38:38,497 - Model path: /home/lp8/Documentos/IC-VANT/AI-embedded-vision-VANT-precision-agriculture/PlantVillage/model/lp8/cnn_ep=20_lr=0.001_aug=False.keras
+[INFO] 2025-05-14 16:38:38,497 - Device: lp8
+[INFO] 2025-05-14 16:38:38,497 - Creating and compiling cnn model...
+[INFO] 2025-05-14 16:38:38,579 - Fitting cnn model...
+[INFO] 2025-05-14 16:38:38,580 - 
+--- Training model (cnn_ep=20_lr=0.001_aug=False) ---
