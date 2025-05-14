@@ -5,9 +5,8 @@
 class MenuSystem:
     """Handles user interaction for model training options."""
     
-    def __init__(self, logger):
-        """Initialize the menu system with a logger."""
-        self.logger = logger
+    def __init__(self):
+        """Initialize the menu system."""
         self.choices = {}
     
     def display_model_selection(self):
@@ -19,10 +18,10 @@ class MenuSystem:
         
         if choice == '1':
             self.choices['model_type'] = 'cnn'
-            self.logger.info("Selected model type: Custom CNN")
+            print("Selected model type: Custom CNN")
         else:
             self.choices['model_type'] = 'mobilenet'
-            self.logger.info("Selected model type: MobileNet")
+            print("Selected model type: MobileNet")
         
         return self.choices['model_type']
     
@@ -33,7 +32,7 @@ class MenuSystem:
         choice = input("Create TFLite model? (y/n): ").strip().lower()
         
         self.choices['create_tflite'] = choice == 'y' or choice == 'yes'
-        self.logger.info(f"Create TFLite model: {self.choices['create_tflite']}")
+        print(f"Create TFLite model: {self.choices['create_tflite']}")
         
         return self.choices['create_tflite']
     
@@ -44,7 +43,7 @@ class MenuSystem:
         choice = input("Create quantized model? (y/n): ").strip().lower()
         
         self.choices['create_quant'] = choice == 'y' or choice == 'yes'
-        self.logger.info(f"Create quantized model: {self.choices['create_quant']}")
+        print(f"Create quantized model: {self.choices['create_quant']}")
         
         return self.choices['create_quant']
     
@@ -59,7 +58,7 @@ class MenuSystem:
         choice = input("Create quantized TFLite model? (y/n): ").strip().lower()
         
         self.choices['create_quant_tflite'] = choice == 'y' or choice == 'yes'
-        self.logger.info(f"Create quantized TFLite model: {self.choices['create_quant_tflite']}")
+        print(f"Create quantized TFLite model: {self.choices['create_quant_tflite']}")
         
         return self.choices['create_quant_tflite']
     
