@@ -33,11 +33,17 @@ def main():
     print(f"Checking config dataset and device: {config.DATASET_TYPE} and device: {config.DEVICE}")
     print(f"Training for {config.EPOCHS} epochs")
 
-    # Initialize logger
-    logger = Logger(config.LOG_PATH, f"tf_create_models_{config}_{config.DATASET_TYPE}_{config.MODEL_BASE_NAME}")
+    # Initialize menu system first to get model type
+    menu = MenuSystem()
+    choices = menu.get_all_choices()
+    model_type = choices['model_type']
+    
+    # Initialize logger with model type included in the filename
+    logger = Logger(config.LOG_PATH, f"tf_create_models_{config}_{config.DATASET_TYPE}_{model_type}_{config.MODEL_BASE_NAME}")
     logger.info(f"Starting creation of TF models - Dataset {config.DATASET_TYPE}")
     logger.info(f"Using device: {config.DEVICE}")
     logger.info(f"Training for {config.EPOCHS} epochs")
+    logger.info(f"Selected model type: {model_type}")
 
     # Check environment
     Utils.check_gpu()
@@ -49,9 +55,6 @@ def main():
     model_builder = ModelBuilder(config, logger)
     trainer = Trainer(config, logger)
     evaluator = Evaluator(config, logger)
-    
-    # Initialize menu system
-    menu = MenuSystem(logger)
     
     # Initialize model manager
     model_manager = ModelManager(config, logger, model_builder, trainer, evaluator)
@@ -70,9 +73,7 @@ def main():
     # Load MobileNet datasets if needed
     mobilenet_datasets = None
     
-    # Get user choices from menu
-    choices = menu.get_all_choices()
-    model_type = choices['model_type']
+    # Get remaining choices from menu
     create_tflite = choices['create_tflite']
     create_quant = choices['create_quant']
     create_quant_tflite = choices['create_quant_tflite']
