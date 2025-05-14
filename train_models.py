@@ -26,12 +26,14 @@ def main():
                         help='Device type (e.g., rasp, desktop)')
     parser.add_argument('--epochs', type=int, default=10,
                         help='Number of training epochs')
+    parser.add_argument('--batch_size', type=int, default=32,
+                        help='Batch size for training')
     args = parser.parse_args()
     
     # Initialize configuration with command line arguments
-    config = Config(args.dataset, args.device, args.epochs)
+    config = Config(args.dataset, args.device, args.epochs, args.batch_size)
     print(f"Checking config dataset and device: {config.DATASET_TYPE} and device: {config.DEVICE}")
-    print(f"Training for {config.EPOCHS} epochs")
+    print(f"Training for {config.EPOCHS} epochs with batch size {config.BATCH_SIZE}")
 
     # Initialize menu system first to get model type
     menu = MenuSystem()
@@ -39,10 +41,11 @@ def main():
     model_type = choices['model_type']
     
     # Initialize logger with model type included in the filename
-    logger = Logger(config.LOG_PATH, f"tf_create_models_{config}_{config.DATASET_TYPE}_{model_type}_{config.MODEL_BASE_NAME}")
+    logger = Logger(config.LOG_PATH, f"tf_create_models_{config}_{config.DATASET_TYPE}_{model_type}_{config.MODEL_BASE_NAME}_bs{config.BATCH_SIZE}")
     logger.info(f"Starting creation of TF models - Dataset {config.DATASET_TYPE}")
     logger.info(f"Using device: {config.DEVICE}")
     logger.info(f"Training for {config.EPOCHS} epochs")
+    logger.info(f"Using batch size: {config.BATCH_SIZE}")
     logger.info(f"Selected model type: {model_type}")
 
     # Check environment
