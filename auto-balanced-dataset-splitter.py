@@ -241,6 +241,8 @@ def main():
                         help='Plant culture (e.g., Tomato, Pepper)')
     parser.add_argument('--device', type=str, default='rasp',
                         help='Device type (e.g., rasp, desktop)')
+    parser.add_argument('--undersample', type=bool, default=True,
+                        help='Whether to undersample the dataset')
 
     args = parser.parse_args()
 
@@ -248,15 +250,15 @@ def main():
     config = Config(
         dataset_type=args.dataset,
         device=args.device,
-        culture=args.culture
+        culture=args.culture,
+        balance_classes=args.undersample
     )
-    # Add balance_classes attribute
-    config.BALANCE_CLASSES = True
+    # Create directories
     config.create_directories()
 
     # Init Logger
     logger = Logger(config.LOG_PATH, f"dataset_split_{config.DATASET_TYPE}_{config.DEVICE}")
-    logger.info(f"Starting auto-balanced dataset split for {config.DATASET_TYPE} on {config.DEVICE}")
+    logger.info(f"Starting auto-balanced dataset split for {config.DATASET_TYPE} on {config.DEVICE} | undersample={config.BALANCE_CLASSES}")
 
     # Update path references if needed
     # For example, if the central Config uses different path names
