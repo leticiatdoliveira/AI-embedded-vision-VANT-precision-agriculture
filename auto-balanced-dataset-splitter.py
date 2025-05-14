@@ -69,12 +69,13 @@ def split_data_from_drive_balanced(config, logger, train_ratio=0.6, validation_r
         train_ratio: The proportion of data to use for training.
         validation_ratio: The proportion of data to use for validation.
     """
-    for dir_path in [config.TRAIN_PATH, config.VALIDATION_PATH, config.TEST_PATH]:
+    for dir_path in [config.TRAIN_DIR, config.VAL_DIR, config.TEST_DIR]:
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
 
     logger.info(f"Starting to split data from {config.DATA_PATH} with balancing={config.BALANCE_CLASSES}")
 
+    exit(-1)
     # Check if the source directory exists
     if not os.path.exists(config.DATA_PATH):
         logger.error(f"Error: Source path {config.DATA_PATH} does not exist!")
@@ -260,12 +261,12 @@ def main():
     logger = Logger(config.LOG_PATH, f"dataset_split_{config.DATASET_TYPE}_{config.DEVICE}")
     logger.info(f"Starting auto-balanced dataset split for {config.DATASET_TYPE} on {config.DEVICE} | undersample={config.BALANCE_CLASSES}")
 
-    # Update path references if needed
-    # For example, if the central Config uses different path names
-    config.TRAIN_PATH = config.TRAIN_DIR
-    config.VALIDATION_PATH = config.VAL_DIR
-    config.TEST_PATH = config.TEST_DIR
-    config.DATA_PATH = os.path.join(config.PROJECT_PATH, 'data')
+    # # Update path references if needed
+    # # For example, if the central Config uses different path names
+    # config.TRAIN_PATH = config.TRAIN_DIR
+    # config.VALIDATION_PATH = config.VAL_DIR
+    # config.TEST_PATH = config.TEST_DIR
+    # config.DATA_PATH = os.path.join(config.PROJECT_PATH, 'data')
 
     # Import constants for dataset split ratios
     from constants import TRAIN_RATIO, VALIDATION_RATIO
@@ -279,9 +280,9 @@ def main():
     )
 
     # Verify split results using Config paths
-    train_num_data, train_num_classes, train_class_counts = verify_dataset_stats(config.TRAIN_PATH)
-    validation_num_data, validation_num_classes, validation_class_counts = verify_dataset_stats(config.VALIDATION_PATH)
-    test_num_data, test_num_classes, test_class_counts = verify_dataset_stats(config.TEST_PATH)
+    train_num_data, train_num_classes, train_class_counts = verify_dataset_stats(config.TRAIN_DIR)
+    validation_num_data, validation_num_classes, validation_class_counts = verify_dataset_stats(config.VAL_DIR)
+    test_num_data, test_num_classes, test_class_counts = verify_dataset_stats(config.TEST_DIR)
 
     # Check balance quality
     train_cv, train_mean, train_std = check_balance_quality(train_class_counts)
