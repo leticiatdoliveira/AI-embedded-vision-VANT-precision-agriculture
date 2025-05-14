@@ -6,7 +6,7 @@ from constants import SEED_VALUE, DEFAULT_IMG_SIZE, DEFAULT_BATCH_SIZE, DEFAULT_
 class Config:
     """Configuration parameters for model training and evaluation."""
 
-    def __init__(self, dataset_type, device='mac', epochs=None):
+    def __init__(self, dataset_type, device='mac', epochs=None, culture=None):
         # Constants from constants.py
         self.IMG_SIZE = DEFAULT_IMG_SIZE
         self.BATCH_SIZE = DEFAULT_BATCH_SIZE
@@ -15,6 +15,10 @@ class Config:
         self.DATASET_TYPE = dataset_type
         self.DATA_AUGMENTATION = False
         self.DEVICE = device  # Store device type
+    
+        # Culture-specific configurations
+        if culture:
+           self.PLANT_CULTURE = culture
 
         # Early stopping configuration from constants.py
         self.EARLY_STOP_PATIENCE = EARLY_STOP_PATIENCE
