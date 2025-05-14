@@ -31,7 +31,12 @@ def main():
     args = parser.parse_args()
     
     # Initialize configuration with command line arguments
-    config = Config(args.dataset, args.device, args.epochs, args.batch_size)
+    config = Config(
+    	dataset_type = args.dataset,
+    	device = args.device,
+	epochs = args.epochs,
+	batch_size = args.batch_size
+	)
     print(f"Checking config dataset and device: {config.DATASET_TYPE} and device: {config.DEVICE}")
     print(f"Training for {config.EPOCHS} epochs with batch size {config.BATCH_SIZE}")
 
@@ -47,6 +52,8 @@ def main():
     logger.info(f"Training for {config.EPOCHS} epochs")
     logger.info(f"Using batch size: {config.BATCH_SIZE}")
     logger.info(f"Selected model type: {model_type}")
+    
+    exit(0)
 
     # Check environment
     Utils.check_gpu()

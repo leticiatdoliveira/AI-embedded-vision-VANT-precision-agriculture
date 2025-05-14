@@ -6,11 +6,11 @@ from constants import SEED_VALUE, DEFAULT_IMG_SIZE, DEFAULT_BATCH_SIZE, DEFAULT_
 class Config:
     """Configuration parameters for model training and evaluation."""
 
-    def __init__(self, dataset_type, device='mac', culture=None, balance_classes=True, epochs=None):
+    def __init__(self, dataset_type, device='mac', culture=None, balance_classes=True, epochs=DEFAULT_EPOCHS, batch_size = DEFAULT_BATCH_SIZE):
         # Constants from constants.py
         self.IMG_SIZE = DEFAULT_IMG_SIZE
-        self.BATCH_SIZE = DEFAULT_BATCH_SIZE
-        self.EPOCHS = epochs if epochs is not None else DEFAULT_EPOCHS
+        self.BATCH_SIZE = batch_size
+        self.EPOCHS = epochs
         self.LEARNING_RATE = DEFAULT_LEARNING_RATE
         self.DATASET_TYPE = dataset_type
         self.DATA_AUGMENTATION = False
