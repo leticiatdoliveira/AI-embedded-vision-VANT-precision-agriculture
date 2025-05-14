@@ -1,7 +1,7 @@
 """Constants used throughout the project."""
 
 # Model training constants
-DEFAULT_BATCH_SIZE = 32
+DEFAULT_BATCH_SIZE = 8
 DEFAULT_IMG_SIZE = (224, 224)
 DEFAULT_LEARNING_RATE = 0.001
 DEFAULT_EPOCHS = 10

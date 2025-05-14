@@ -71,7 +71,7 @@ class ModelBuilder:
             # Add classification head
             x = layers.GlobalAveragePooling2D()(x)
             x = layers.Dropout(0.2)(x)
-            x = layers.Dense(128, activation='relu')(x)
+            x = layers.Dense(64, activation='relu')(x)
             outputs = layers.Dense(num_classes, activation='softmax')(x)
             
             model = tf.keras.Model(inputs=inputs, outputs=outputs)

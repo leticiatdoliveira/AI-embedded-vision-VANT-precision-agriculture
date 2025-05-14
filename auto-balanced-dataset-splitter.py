@@ -75,7 +75,6 @@ def split_data_from_drive_balanced(config, logger, train_ratio=0.6, validation_r
 
     logger.info(f"Starting to split data from {config.DATA_PATH} with balancing={config.BALANCE_CLASSES}")
 
-    exit(-1)
     # Check if the source directory exists
     if not os.path.exists(config.DATA_PATH):
         logger.error(f"Error: Source path {config.DATA_PATH} does not exist!")
@@ -158,9 +157,9 @@ def split_data_from_drive_balanced(config, logger, train_ratio=0.6, validation_r
         test_images = image_files[num_train + num_validation:]
 
         # Create destination class directories
-        dst_train_class_dir = os.path.join(config.TRAIN_PATH, class_name)
-        dst_validation_class_dir = os.path.join(config.VALIDATION_PATH, class_name)
-        dst_test_class_dir = os.path.join(config.TEST_PATH, class_name)
+        dst_train_class_dir = os.path.join(config.TRAIN_DIR, class_name)
+        dst_validation_class_dir = os.path.join(config.VAL_DIR, class_name)
+        dst_test_class_dir = os.path.join(config.TEST_DIR, class_name)
 
         for dir_path in [dst_train_class_dir, dst_validation_class_dir, dst_test_class_dir]:
             if not os.path.exists(dir_path):
@@ -242,10 +241,13 @@ def main():
                         help='Plant culture (e.g., Tomato, Pepper)')
     parser.add_argument('--device', type=str, default='rasp',
                         help='Device type (e.g., rasp, desktop)')
-    parser.add_argument('--undersample', type=bool, default=True,
+    parser.add_argument('--undersample', action='store_true', default=True,
                         help='Whether to undersample the dataset')
+    parser.add_argument('--no-undersample', dest='undersample', action='store_false',
+                        help='Disable to undersampling')
 
     args = parser.parse_args()
+    print(args.undersample)
 
     # Initialize configuration using the central Config class
     config = Config(

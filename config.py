@@ -35,6 +35,7 @@ class Config:
         self.ROOT_PATH = os.getcwd()
         self.PROJECT_PATH = os.path.join(self.ROOT_PATH, self.DATASET_TYPE)
         self.DATASET_PATH = os.path.join(self.PROJECT_PATH, 'dataset')
+        self.DATA_PATH = os.path.join(self.PROJECT_PATH, 'data')
         
         # Device-specific directories
         self.MODEL_PATH = os.path.join(self.PROJECT_PATH, 'model', self.DEVICE)
